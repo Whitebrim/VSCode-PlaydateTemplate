@@ -1,0 +1,6 @@
+name=Template
+author=You
+description=This is template project
+bundleID=com.organization.package
+version=0.0.1
+buildNumber=1

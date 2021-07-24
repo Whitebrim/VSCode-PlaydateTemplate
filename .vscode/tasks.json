@@ -1,0 +1,79 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "Clean",
+		"type": "shell",
+		"command": "Remove-Item",
+		"args": [
+		  "'${workspaceFolder}\\builds\\*'",
+		  "-Recurse",
+		  "-Force"
+		],
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		}
+	  },
+	  {
+		"label": "Build",
+		"type": "shell",
+		"command": "${env:PLAYDATE_SDK}/bin/pdc.exe",
+		"args": [
+		  "-sdkpath",
+		  "${env:PLAYDATE_SDK}",
+		  "'${workspaceFolder}\\source'", // source folder
+		  "'${workspaceFolder}/builds/${workspaceFolderBasename}.pdx'" // output file
+		],
+		"options": {
+		  "cwd": "${env:PLAYDATE_SDK}" // run from sdk folder to ensure imports work
+		},
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		}
+	  },
+	  {
+		"label": "Close Existing Sim",
+		"type": "shell",
+		"command": "${workspaceFolder}\\closeSim.ps1",
+		"args": [],
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		}
+	  },
+	  {
+		"label": "Run (Simulator)",
+		"type": "shell",
+		"command": "${env:PLAYDATE_SDK}/bin/PlaydateSimulator.exe",
+		"args": ["'${workspaceFolder}/builds/${workspaceFolderBasename}.pdx'"],
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		}
+	  },
+	  {
+		"label": "Build and Run (Simulator)",
+		"dependsOn": ["Clean", "Build", "Close Existing Sim", "Run (Simulator)"],
+		"dependsOrder": "sequence",
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		},
+		"problemMatcher": [],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		}
+	  }
+	]
+  }
+  
