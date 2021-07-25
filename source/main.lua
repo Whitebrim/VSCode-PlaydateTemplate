@@ -11,14 +11,12 @@ local function updateGame()
 end
 
 local function drawGame()
-	playdate.graphics.clear()
+	gfx.clear()
 	font:drawText("Template", 155, 110)
 end
 
 playdate.display.setRefreshRate(50)
 loadGame()
-
-playdate.graphics.setColor(playdate.graphics.kColorBlack)
 
 function playdate.update()
 	updateGame()
