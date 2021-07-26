@@ -1,21 +1,24 @@
+import "dvd"
+local dvd = dvd(1, -1)
+
 local gfx <const> = playdate.graphics
 local font = gfx.font.new('font/Mini Sans 2X')
 
 local function loadGame()
+	playdate.display.setRefreshRate(50)
 	math.randomseed(playdate.getSecondsSinceEpoch())
-	
+	gfx.setFont(font)
 end
 
 local function updateGame()
-
+	dvd:update()
 end
 
 local function drawGame()
 	gfx.clear()
-	font:drawText("Template", 155, 110)
+	dvd:draw()
 end
 
-playdate.display.setRefreshRate(50)
 loadGame()
 
 function playdate.update()
