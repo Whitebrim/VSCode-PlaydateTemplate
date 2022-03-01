@@ -21,15 +21,15 @@
 	  {
 		"label": "Build",
 		"type": "shell",
-		"command": "${env:PLAYDATE_SDK}/bin/pdc.exe",
+		"command": "${env:PLAYDATE_SDK_PATH}/bin/pdc.exe",
 		"args": [
 		  "-sdkpath",
-		  "${env:PLAYDATE_SDK}",
+		  "${env:PLAYDATE_SDK_PATH}",
 		  "'${workspaceFolder}\\source'", // source folder
 		  "'${workspaceFolder}/builds/${workspaceFolderBasename}.pdx'" // output file
 		],
 		"options": {
-		  "cwd": "${env:PLAYDATE_SDK}" // run from sdk folder to ensure imports work
+		  "cwd": "${env:PLAYDATE_SDK_PATH}" // run from sdk folder to ensure imports work
 		},
 		"presentation": {
 		  "showReuseMessage": false,
@@ -51,7 +51,7 @@
 	  {
 		"label": "Run (Simulator)",
 		"type": "shell",
-		"command": "${env:PLAYDATE_SDK}/bin/PlaydateSimulator.exe",
+		"command": "${env:PLAYDATE_SDK_PATH}/bin/PlaydateSimulator.exe",
 		"args": ["'${workspaceFolder}/builds/${workspaceFolderBasename}.pdx'"],
 		"presentation": {
 		  "showReuseMessage": false,
@@ -71,6 +71,21 @@
 		"problemMatcher": [],
 		"group": {
 		  "kind": "build",
+		  "isDefault": true
+		}
+	  },
+	  {
+		"label": "Test (Simulator)",
+		"dependsOn": ["Close Existing Sim", "Run (Simulator)"],
+		"dependsOrder": "sequence",
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		},
+		"problemMatcher": [],
+		"group": {
+		  "kind": "test",
 		  "isDefault": true
 		}
 	  }
