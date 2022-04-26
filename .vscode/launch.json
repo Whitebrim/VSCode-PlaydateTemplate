@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "playdate",
+            "type": "playdate-template",
             "request": "launch",
             "name": "Build and Run (Simulator)",
             "preLaunchTask": "Build and Run (Simulator)"
