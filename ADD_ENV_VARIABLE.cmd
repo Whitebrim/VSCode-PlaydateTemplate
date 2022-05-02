@@ -1,8 +1,14 @@
-:: CHANGE PATH HERE
-:: %userprofile% is path to your user folder in C:/user/
-set SDKPATH="%userprofile%\Documents\PlaydateSDK"
-
 @echo off
+:: CHANGE PATH HERE
+:: Replace YOUR CUSTOM SDK PATH HERE with your custom path.
+:: Use \ as separator
+:: Must not end with \
+set SDKPATH="C:\Users\Whitebrim\Pictures\ANIME"
+
+
+if %SDKPATH% == "YOUR CUSTOM SDK PATH HERE" (
+	FOR /F "tokens=2* skip=2" %%a in ('reg query "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders" /v "Personal"') do set SDKPATH=%%b
+)
 :: BatchGotAdmin
 :-------------------------------------
 REM  --> Check for permissions
@@ -33,7 +39,7 @@ if '%errorlevel%' NEQ '0' (
 :--------------------------------------
 
 :: Add PLAYDATE_SDK_PATH env variable
-setx /M PLAYDATE_SDK_PATH "%SDKPATH%"
+setx /M PLAYDATE_SDK_PATH "%SDKPATH%" 2> nul
 :: Add pcd.exe to the PATH env variable
 set pathkey="HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment"
 for %%p in (pdc.exe) do (set pdcCheck=%%~$PATH:p)
