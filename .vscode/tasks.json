@@ -4,13 +4,17 @@
 	"version": "2.0.0",
 	"tasks": [
 	  {
-		"label": "Clean",
+		"label": "Invoke Build and Run script",
 		"type": "shell",
-		"command": "Remove-Item",
+		"command": "&",
 		"args": [
-		  "'${workspaceFolder}\\builds\\*'",
-		  "-Recurse",
-		  "-Force"
+			"${workspaceFolder}\\Build and Run (Simulator).ps1",
+			"-build",
+			"'${workspaceFolder}\\builds'",
+			"-source",
+			"'${workspaceFolder}\\source'",
+			"-name",
+			"'${workspaceFolderBasename}'"
 		],
 		"presentation": {
 		  "showReuseMessage": false,
@@ -19,40 +23,19 @@
 		}
 	  },
 	  {
-		"label": "Build",
+		"label": "Invoke Run script",
 		"type": "shell",
-		"command": "pdc",
+		"command": "&",
 		"args": [
-		  "-sdkpath",
-		  "${env:PLAYDATE_SDK_PATH}",
-		  "'${workspaceFolder}\\source'", // source folder
-		  "'${workspaceFolder}/builds/${workspaceFolderBasename}.pdx'" // output file
+			"${workspaceFolder}\\Build and Run (Simulator).ps1",
+			"-build",
+			"'${workspaceFolder}\\builds'",
+			"-source",
+			"'${workspaceFolder}\\source'",
+			"-name",
+			"'${workspaceFolderBasename}'",
+			"-dontbuild"
 		],
-		"options": {
-		  "cwd": "${env:PLAYDATE_SDK_PATH}" // run from sdk folder to ensure imports work
-		},
-		"presentation": {
-		  "showReuseMessage": false,
-		  "reveal": "always",
-		  "panel": "shared"
-		}
-	  },
-	  {
-		"label": "Close Existing Sim",
-		"type": "shell",
-		"command": "${workspaceFolder}\\closeSim.ps1",
-		"args": [],
-		"presentation": {
-		  "showReuseMessage": false,
-		  "reveal": "always",
-		  "panel": "shared"
-		}
-	  },
-	  {
-		"label": "Run (Simulator)",
-		"type": "shell",
-		"command": "${env:PLAYDATE_SDK_PATH}/bin/PlaydateSimulator.exe",
-		"args": ["'${workspaceFolder}/builds/${workspaceFolderBasename}.pdx'"],
 		"presentation": {
 		  "showReuseMessage": false,
 		  "reveal": "always",
@@ -61,7 +44,7 @@
 	  },
 	  {
 		"label": "Build and Run (Simulator)",
-		"dependsOn": ["Clean", "Build", "Close Existing Sim", "Run (Simulator)"],
+		"dependsOn": ["Invoke Build and Run script"],
 		"dependsOrder": "sequence",
 		"presentation": {
 		  "showReuseMessage": false,
@@ -75,8 +58,8 @@
 		}
 	  },
 	  {
-		"label": "Test (Simulator)",
-		"dependsOn": ["Close Existing Sim", "Run (Simulator)"],
+		"label": "Run (Simulator)",
+		"dependsOn": ["Invoke Run script"],
 		"dependsOrder": "sequence",
 		"presentation": {
 		  "showReuseMessage": false,

@@ -1,7 +1,7 @@
 <img src="https://media.giphy.com/media/QhNgpDotBASjWj7asJ/giphy.gif" width="800" height="480" />
 
 # Installation:  
-0. **Unlock** `closeSim.ps1` file if it's locked: open properties and click unlock in the bottom of the window.  
+0. **Unlock** `Build and Run (Simulator).ps1` file if it's locked: open properties and click unlock in the bottom of the window.  
 0. If you've installed Playdate SDK to the default path (Documents folder) then just **run** `ADD_ENV_VARIABLE.cmd` to add env variables:  
     * PLAYDATE_SDK_PATH to Playdate SDK
     * Adds Playdate SDK's bin folder to PATH (if it is not already added) to create `pdc` shortcut  
