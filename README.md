@@ -10,7 +10,9 @@
     `set SDKPATH="YOUR CUSTOM SDK PATH HERE"`
     
     This should be done only once, you need to restart VSCode after this.  
-0. Edit your `Code.exe` execatable (VSCode) to run with **admin rights** by default. You can find this file if you input this path to your explorer: `%appdata%\..\Local\Programs\Microsoft VS Code`  
+0. ~~Edit your `Code.exe` execatable (VSCode) to run with **admin rights** by default. You can find this file if you input this path to your explorer: `%appdata%\..\Local\Programs\Microsoft VS Code`~~  
+    Open PowerShell and change execution policy to RemoteSigned, so you can run closeSim.ps1 without admin rights:  
+    Enter `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` into PowerShell then hit `Y`.
 0. Open template folder with VSCode, **install recomended extensions** (popup will show in the lower right corner): `Lua`, `Lua Plus`. Then restart VSCode.  
 0. If you want to change "build and run" key:  
     * **Ctrl + K, Ctrl + S**  
