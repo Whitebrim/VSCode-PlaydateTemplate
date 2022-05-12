@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "playdate",
+            "name": "Build and Run (Simulator)",
+            "preLaunchTask": "${defaultBuildTask}",
+            "request": "launch",
+        },
+        {
+            "type": "playdate",
+            "name": "Run (Simulator)",
+            "preLaunchTask": "Run (Simulator)",
+            "request": "launch",
+        }
+    ]
+}

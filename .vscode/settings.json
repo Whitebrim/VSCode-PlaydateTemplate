@@ -4,5 +4,9 @@
   "Lua.diagnostics.globals": ["playdate", "import"],
   "Lua.runtime.nonstandardSymbol": ["+=", "-=", "*=", "/="],
   "Lua.workspace.library": ["$PLAYDATE_SDK_PATH/CoreLibs"],
-  "Lua.workspace.preloadFileSize": 1000
+  "Lua.workspace.preloadFileSize": 1000,
+  "playdate-debug.outputPath": "'${workspaceFolder}\\builds'",
+  "playdate-debug.productName": "'${workspaceFolderBasename}'",
+  "playdate-debug.sdkPath": "'$PLAYDATE_SDK_PATH'",
+  "playdate-debug.sourcePath": "'${workspaceFolder}\\source'"
 }

@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "sumneko.lua",
-        "jep-a.lua-plus"
+        "jep-a.lua-plus",
+        "midouest.playdate-debug"
     ]
 }
