@@ -1,0 +1,54 @@
+name: PlayDate Build
+
+on:
+  push:
+  # Change this if your main branch is main
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  # Change if the SDK Version change (from the downloaded version
+  PLAYDATE_SDK_FOLDER: PlaydateSDK-1.12.3
+  # Change if your game is not on the source folder
+  SOURCE_FOLDER: ./source
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Get Metadata
+        id: metadata
+        run: |
+          FILE=("$SOURCE_FOLDER/pdxinfo")
+          NAME=$(sed -rn 's@.*name=(.*)@\1@p' $FILE)
+          VERSION=$(sed -rn 's@.*version=(.*)@\1@p' $FILE)
+          RELEASE="$NAME $VERSION.pdx.zip"
+          echo "name=$NAME" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "release=$RELEASE" >> $GITHUB_OUTPUT
+
+      - name: Install PlayDate SDK
+        run: |
+          wget https://download.panic.com/playdate_sdk/Linux/PlaydateSDK-latest.tar.gz
+          tar -xf PlaydateSDK-latest.tar.gz
+      - name: Build PlayDate Game
+        env:
+          NAME: ${{ steps.metadata.outputs.name }}
+        run: ./$PLAYDATE_SDK_FOLDER/bin/pdc ./$SOURCE_FOLDER ./$NAME.pdx
+      - name: Zip File
+        env:
+          NAME: ${{ steps.metadata.outputs.name }}
+          RELEASE: ${{ steps.metadata.outputs.release }}
+        run: zip -r "./$RELEASE" "./$NAME.pdx"
+      
+      - name: Create Release
+        uses: ncipollo/release-action@v1.11.2
+        with:
+          artifacts: "./${{ steps.metadata.outputs.release }}"
+          allowUpdates: true
+          name: ${{ steps.metadata.outputs.name }} ${{ steps.metadata.outputs.version }}
+          tag: ${{ steps.metadata.outputs.version }}
