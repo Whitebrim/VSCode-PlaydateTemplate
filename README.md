@@ -19,4 +19,5 @@
     * Change keybind for `Tasks: Run Build Task` (I've changed to **F5**)  
 0. Your can find your `main.lua` file inside `source` folder. Press your "Run Build Task" button, you should see "Template" text in playdate simulator.  
 0. Feel free to delete `dvd.lua` and all dvd-related lines from `main.lua` (marked `-- DEMOO`)
-0. ## Don't forget to change your credentials in `source/pdxinfo`: "name", "author", "description" and "bundleID". Read more about pdxinfo [here](https://sdk.play.date/Inside%20Playdate.html#pdxinfo).
+0. ## ⚠️ Don't forget to change your credentials in `source/pdxinfo`: "bundleID", "name", "author", "description". Read more about pdxinfo [here](https://sdk.play.date/Inside%20Playdate.html#pdxinfo).  
+    It's critical to change your game bundleID, so there will be no collisions with other games, installed via sideload.
