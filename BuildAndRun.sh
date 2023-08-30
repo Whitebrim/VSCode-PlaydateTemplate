@@ -46,4 +46,4 @@ if [ ! -z "$sim_pid" ]; then
 fi
 
 # Run (Simulator)
-"$PLAYDATE_SDK_PATH/bin/PlaydateSimulator" "$pdx"
+open "$PLAYDATE_SDK_PATH/bin/Playdate Simulator.app" "$pdx"

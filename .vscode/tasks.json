@@ -34,7 +34,9 @@
         },
         {
             "label": "Build and Run (Simulator)",
-            "dependsOn": ["Invoke Build and Run script"],
+            "dependsOn": [
+                "Invoke Build and Run script"
+            ],
             "dependsOrder": "sequence",
             "presentation": {
                 "showReuseMessage": false,
@@ -49,7 +51,9 @@
         },
         {
             "label": "Run (Simulator)",
-            "dependsOn": ["Invoke Run script"],
+            "dependsOn": [
+                "Invoke Run script"
+            ],
             "dependsOrder": "sequence",
             "presentation": {
                 "showReuseMessage": false,
