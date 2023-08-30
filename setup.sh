@@ -60,6 +60,26 @@ update_config() {
     fi
 }
 
+# Function to display help information
+display_help() {
+    cat << EOF
+Usage: ./setup.sh [OPTION] [SDK_PATH]
+Set up the environment for the Playdate SDK.
+
+Available options:
+  -a, --all       Update all configurations (PATH, config, startup.sh)
+  -p, --path      Update only the PATH variable
+  -c, --config    Update only the config file
+  -s, --startup   Update only the startup.sh file
+  -t, --test      Test mode (Dry run)
+  -h, --help      Display this help and exit
+
+Example:
+  ./setup.sh -a /path/to/PlaydateSDK
+EOF
+    exit 0
+}
+
 # Manual argument parsing
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -72,6 +92,9 @@ while [[ $# -gt 0 ]]; do
             TEST=true
             SDKPATH="$2"
             shift 2
+            ;;
+        -h|--help)
+            display_help
             ;;
         -*)
             # Iterate over each character in the flag (e.g., -cp will check 'c' and 'p')
@@ -89,6 +112,7 @@ while [[ $# -gt 0 ]]; do
                         ;;
                     *)
                         echo "Invalid option: -$char" >&2
+                        echo "Use -h or --help for usage information."
                         exit 1
                         ;;
                 esac
