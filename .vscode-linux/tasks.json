@@ -1,0 +1,64 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "Invoke Build and Run script",
+		"type": "shell",
+		"command": "${workspaceFolder}/build_and_run.sh",
+		"args": [
+			"build"
+		],
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		}
+	  },
+	  {
+		"label": "Invoke Run script",
+		"type": "shell",
+		"command": "${workspaceFolder}/build_and_run.sh",
+		"args": [
+			"run"
+		],
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		}
+	  },
+	  {
+		"label": "Build and Run (Simulator)",
+		"dependsOn": ["Invoke Build and Run script"],
+		"dependsOrder": "sequence",
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		},
+		"problemMatcher": [],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		}
+	  },
+	  {
+		"label": "Run (Simulator)",
+		"dependsOn": ["Invoke Run script"],
+		"dependsOrder": "sequence",
+		"presentation": {
+		  "showReuseMessage": false,
+		  "reveal": "always",
+		  "panel": "shared"
+		},
+		"problemMatcher": [],
+		"group": {
+		  "kind": "test",
+		  "isDefault": true
+		}
+	  }
+	]
+  }
+  
