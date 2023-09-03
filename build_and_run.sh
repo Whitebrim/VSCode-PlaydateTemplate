@@ -4,6 +4,7 @@
 if [[ -z $NOCOLOR && -n $(command -v tput) ]]; then
     RED=$(tput setaf 1)
     CYN=$(tput setaf 6)
+    YEL=$(tput setaf 3)
     RST=$(tput sgr0)
 fi
 
@@ -11,8 +12,8 @@ function display_help() {
     printf "%s\n\n" "${0} build|run|-h|--help|"
     printf "%-16s\n" "build: Builds the project and runs the Simulator"
     printf "%-16s\n" "run  : Skips building the project and runs the Simulator"
-    printf "\n\n"
-    printf "%s" "Set NOCOLOR=1 to disable terminal coloring"
+    printf "\n"
+    printf "%s\n\n" "Set NOCOLOR=1 to disable terminal coloring"
     exit 0
 }
 
@@ -39,8 +40,22 @@ PDX_PATH="${BUILD_DIR}/$(basename $(pwd)).pdx"
 function log() {
     printf "%s\n" "${CYN}>> $1${RST}"
 }
+function log_warn() {
+    printf "%s\n" "${YEL}>! $1${RST}"
+}
 function log_err() {
     printf "%s\n  >> %s\n" "${RED}!! ERROR !!" "$1${RST}"
+}
+
+function check_pdxinfo() {
+    if [[ -f ./source/pdxinfo ]]; then
+        if grep "com.organization.package" ./source/pdxinfo 2>&1 >/dev/null; then
+            log_warn "PDXINFO NOTICE:"
+            log_warn "Don't forget to change your unique project info in 'source/pdxinfo': 'bundleID', 'name', 'author', 'description'."
+            log_warn "It's critical to change your game bundleID, so there will be no collisions with other games, installed via sideload."
+            log_warn "Read more about pdxinfo here: https://sdk.play.date/Inside%20Playdate.html#pdxinfo"
+        fi
+    fi
 }
 
 function chk_err() {
@@ -116,6 +131,7 @@ if [[ $BUILD == 1 ]]; then
     log "Attempting a build and run of PDX..."
     make_build_dir
     clean_build_dir
+    check_pdxinfo
     build_pdx
     check_close_sim
     run_pdx
