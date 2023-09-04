@@ -1,0 +1,8 @@
+{
+  "Lua.runtime.version": "Lua 5.4",
+  "Lua.diagnostics.disable": ["undefined-global", "lowercase-global"],
+  "Lua.diagnostics.globals": ["playdate", "import"],
+  "Lua.runtime.nonstandardSymbol": ["+=", "-=", "*=", "/="],
+  "Lua.workspace.library": ["$PLAYDATE_SDK_PATH/CoreLibs"],
+  "Lua.workspace.preloadFileSize": 1000
+}
