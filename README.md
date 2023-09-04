@@ -41,3 +41,6 @@
 0. If desired, change the default key sequence for Build/Run as described in the Windows instructions above
 
 ## ⚠️ Don't forget to change your unique project info in `source/pdxinfo`: "bundleID", "name", "author", "description". Read more about pdxinfo [here](https://sdk.play.date/Inside%20Playdate.html#pdxinfo). It's critical to change your game bundleID, so there will be no collisions with other games, installed via sideload.
+
+# Installation (Mac):
+https://github.com/cadin/playdate-vscode-template
