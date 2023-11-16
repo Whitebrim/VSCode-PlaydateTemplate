@@ -7,15 +7,24 @@
 		"label": "Invoke Build and Run script",
 		"type": "shell",
 		"command": "&",
-		"args": [
-			"${workspaceFolder}\\Build and Run (Simulator).ps1",
-			"-build",
-			"'${workspaceFolder}\\builds'",
-			"-source",
-			"'${workspaceFolder}\\source'",
-			"-name",
-			"'${workspaceFolderBasename}'"
-		],
+		"windows": {
+			"args": [
+				"${workspaceFolder}\\Build and Run (Simulator).ps1",
+				"-build",
+				"'${workspaceFolder}\\builds'",
+				"-source",
+				"'${workspaceFolder}\\source'",
+				"-name",
+				"'${workspaceFolderBasename}'",
+				"-dontbuild"
+			]
+		},
+		"linux": {
+			"command": "${workspaceFolder}/build_and_run.sh",
+			"args": [
+				"build"
+			]
+		},
 		"presentation": {
 		  "showReuseMessage": false,
 		  "reveal": "always",
@@ -26,16 +35,24 @@
 		"label": "Invoke Run script",
 		"type": "shell",
 		"command": "&",
-		"args": [
-			"${workspaceFolder}\\Build and Run (Simulator).ps1",
-			"-build",
-			"'${workspaceFolder}\\builds'",
-			"-source",
-			"'${workspaceFolder}\\source'",
-			"-name",
-			"'${workspaceFolderBasename}'",
-			"-dontbuild"
-		],
+		"windows": {
+			"args": [
+				"${workspaceFolder}\\Build and Run (Simulator).ps1",
+				"-build",
+				"'${workspaceFolder}\\builds'",
+				"-source",
+				"'${workspaceFolder}\\source'",
+				"-name",
+				"'${workspaceFolderBasename}'",
+				"-dontbuild"
+			]
+		},
+		"linux": {
+			"command": "${workspaceFolder}/build_and_run.sh",
+			"args": [
+				"run"
+			]
+		},
 		"presentation": {
 		  "showReuseMessage": false,
 		  "reveal": "always",
