@@ -28,14 +28,6 @@
     ```
     chmod +x build_and_run.sh
     ```
-0. Move/rename the default `.vscode` directory (for Windows) to something else, or delete it:
-    ```
-    mv .vscode .vscode-windows
-    ```
-0. Move/rename the Linux-specific `.vscode` directory to be default
-    ```
-    mv .vscode-linux .vscode
-    ```
 0. Add `PLAYDATE_SDK_PATH` to your `.bashrc`/`.zshrc` or equivalent, and source it; check it with: `env | grep -i playdate`
 0. Launch/relaunch VSCode - if prompted to install extensions, click Yes.
 0. If desired, change the default key sequence for Build/Run as described in the Windows instructions above
