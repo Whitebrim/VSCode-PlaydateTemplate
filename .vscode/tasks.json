@@ -15,8 +15,7 @@
 				"-source",
 				"'${workspaceFolder}\\source'",
 				"-name",
-				"'${workspaceFolderBasename}'",
-				"-dontbuild"
+				"'${workspaceFolderBasename}'"
 			]
 		},
 		"linux": {
