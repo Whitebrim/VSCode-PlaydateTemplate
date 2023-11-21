@@ -19,7 +19,6 @@
     * Change keybind for `Tasks: Run Build Task` (I've changed to **F5**)  
 0. Your can find your `main.lua` file inside `source` folder. Press your "Run Build Task" button, you should see "Template" text in playdate simulator.  
 0. Feel free to delete `dvd.lua` and all dvd-related lines from `main.lua` (marked `-- DEMO`)
-0. Feel free to delete `.vscode-linux` folder.
 
 ## ⚠️ Don't forget to change your unique project info in `source/pdxinfo`: "bundleID", "name", "author", "description". Read more about pdxinfo [here](https://sdk.play.date/Inside%20Playdate.html#pdxinfo). It's critical to change your game bundleID, so there will be no collisions with other games, installed via sideload.  
   
@@ -27,14 +26,6 @@
 0. If it's not already executable, navigate to this directory and make `build_and_run.sh` executable by running the following command:
     ```
     chmod +x build_and_run.sh
-    ```
-0. Move/rename the default `.vscode` directory (for Windows) to something else, or delete it:
-    ```
-    mv .vscode .vscode-windows
-    ```
-0. Move/rename the Linux-specific `.vscode` directory to be default
-    ```
-    mv .vscode-linux .vscode
     ```
 0. Add `PLAYDATE_SDK_PATH` to your `.bashrc`/`.zshrc` or equivalent, and source it; check it with: `env | grep -i playdate`
 0. Launch/relaunch VSCode - if prompted to install extensions, click Yes.
