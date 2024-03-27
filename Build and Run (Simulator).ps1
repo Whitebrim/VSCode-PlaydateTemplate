@@ -29,7 +29,7 @@ $sim = Get-Process "PlaydateSimulator" -ErrorAction SilentlyContinue
 
 if ($sim)
 {
-    $sim.CloseMainWindow()
+    $sim | Stop-Process
     $count = 0
     while (!$sim.HasExited) 
     {
