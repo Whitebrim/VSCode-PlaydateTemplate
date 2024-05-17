@@ -16,7 +16,12 @@
 				"'${workspaceFolder}\\source'",
 				"-name",
 				"'${workspaceFolderBasename}'"
-			]
+			],
+			"options": {
+				"shell": {
+					"executable": "powershell.exe"
+				}
+			}
 		},
 		"linux": {
 			"command": "${workspaceFolder}/build_and_run.sh",
@@ -44,7 +49,12 @@
 				"-name",
 				"'${workspaceFolderBasename}'",
 				"-dontbuild"
-			]
+			],
+			"options": {
+				"shell": {
+					"executable": "powershell.exe"
+				}
+			}
 		},
 		"linux": {
 			"command": "${workspaceFolder}/build_and_run.sh",
