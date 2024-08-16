@@ -17,10 +17,10 @@
 0. If you want to change "build and run" key (default is Ctrl+Shift+B):  
     * **Ctrl + K, Ctrl + S**  
     * Change keybind for `Tasks: Run Build Task` (I've changed to **F5**)  
-0. Your can find your `main.lua` file inside `source` folder. Press your "Run Build Task" button, you should see "Template" text in playdate simulator.  
+0. Your can find your `main.lua` file inside `Source` folder. Press your "Run Build Task" button, you should see "Template" text in playdate simulator.
 0. Feel free to delete `dvd.lua` and all dvd-related lines from `main.lua` (marked `-- DEMO`)
 
-## ⚠️ Don't forget to change your unique project info in `source/pdxinfo`: "bundleID", "name", "author", "description". Read more about pdxinfo [here](https://sdk.play.date/Inside%20Playdate.html#pdxinfo). It's critical to change your game bundleID, so there will be no collisions with other games, installed via sideload.  
+## ⚠️ Don't forget to change your unique project info in `Source/pdxinfo`: "bundleID", "name", "author", "description". Read more about pdxinfo [here](https://sdk.play.date/Inside%20Playdate.html#pdxinfo). It's critical to change your game bundleID, so there will be no collisions with other games, installed via sideload.
   
 # Installation (Linux):
 0. If it's not already executable, navigate to this directory and make `build_and_run.sh` executable by running the following command:
@@ -31,7 +31,7 @@
 0. Launch/relaunch VSCode - if prompted to install extensions, click Yes.
 0. If desired, change the default key sequence for Build/Run as described in the Windows instructions above
 
-## ⚠️ Don't forget to change your unique project info in `source/pdxinfo`: "bundleID", "name", "author", "description". Read more about pdxinfo [here](https://sdk.play.date/Inside%20Playdate.html#pdxinfo). It's critical to change your game bundleID, so there will be no collisions with other games, installed via sideload.
+## ⚠️ Don't forget to change your unique project info in `Source/pdxinfo`: "bundleID", "name", "author", "description". Read more about pdxinfo [here](https://sdk.play.date/Inside%20Playdate.html#pdxinfo). It's critical to change your game bundleID, so there will be no collisions with other games, installed via sideload.
 
 # Installation (Mac):
 https://github.com/cadin/playdate-vscode-template
