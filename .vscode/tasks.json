@@ -13,7 +13,7 @@
 				"-build",
 				"'${workspaceFolder}\\builds'",
 				"-source",
-				"'${workspaceFolder}\\source'",
+				"'${workspaceFolder}\\Source'",
 				"-name",
 				"'${workspaceFolderBasename}'"
 			],
@@ -45,7 +45,7 @@
 				"-build",
 				"'${workspaceFolder}\\builds'",
 				"-source",
-				"'${workspaceFolder}\\source'",
+				"'${workspaceFolder}\\Source'",
 				"-name",
 				"'${workspaceFolderBasename}'",
 				"-dontbuild"
