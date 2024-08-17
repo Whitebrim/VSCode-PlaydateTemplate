@@ -1,6 +1,6 @@
  param (
     [string]$build = ".\builds",
-    [string]$source = ".\source",
+    [string]$source = ".\Source",
     [string]$name = (Get-Item -Path .).BaseName,
     [switch]$dontbuild = $false
  )

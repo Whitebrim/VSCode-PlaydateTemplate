@@ -33,7 +33,7 @@ esac
 
 # Set some paths
 BUILD_DIR="./builds"
-SOURCE_DIR="./source"
+SOURCE_DIR="./Source"
 PDX_PATH="${BUILD_DIR}/$(basename $(pwd)).pdx"
 
 # Logging functions
@@ -48,10 +48,10 @@ function log_err() {
 }
 
 function check_pdxinfo() {
-    if [[ -f ./source/pdxinfo ]]; then
-        if grep "com.organization.package" ./source/pdxinfo 2>&1 >/dev/null; then
+    if [[ -f ./Source/pdxinfo ]]; then
+        if grep "com.organization.package" ./Source/pdxinfo 2>&1 >/dev/null; then
             log_warn "PDXINFO NOTICE:"
-            log_warn "Don't forget to change your unique project info in 'source/pdxinfo': 'bundleID', 'name', 'author', 'description'."
+            log_warn "Don't forget to change your unique project info in 'Source/pdxinfo': 'bundleID', 'name', 'author', 'description'."
             log_warn "It's critical to change your game bundleID, so there will be no collisions with other games, installed via sideload."
             log_warn "Read more about pdxinfo here: https://sdk.play.date/Inside%20Playdate.html#pdxinfo"
         fi
