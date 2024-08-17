@@ -11,7 +11,7 @@
 			"args": [
 				"${workspaceFolder}\\Build and Run (Simulator).ps1",
 				"-build",
-				"'${workspaceFolder}\\builds'",
+				"'${workspaceFolder}\\Builds'",
 				"-source",
 				"'${workspaceFolder}\\Source'",
 				"-name",
@@ -43,7 +43,7 @@
 			"args": [
 				"${workspaceFolder}\\Build and Run (Simulator).ps1",
 				"-build",
-				"'${workspaceFolder}\\builds'",
+				"'${workspaceFolder}\\Builds'",
 				"-source",
 				"'${workspaceFolder}\\Source'",
 				"-name",

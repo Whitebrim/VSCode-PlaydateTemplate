@@ -32,7 +32,7 @@ case $1 in
 esac
 
 # Set some paths
-BUILD_DIR="./builds"
+BUILD_DIR="./Builds"
 SOURCE_DIR="./Source"
 PDX_PATH="${BUILD_DIR}/$(basename $(pwd)).pdx"
 
