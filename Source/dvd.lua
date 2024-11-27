@@ -3,6 +3,7 @@ import "CoreLibs/object"
 
 local gfx <const> = playdate.graphics
 
+dvd={}
 class("dvd").extends()
 
 function dvd:init(xspeed, yspeed)
